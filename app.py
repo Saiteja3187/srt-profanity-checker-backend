@@ -6,7 +6,8 @@ import os
 app = Flask(__name__)
 
 # FIX: Allow all origins (development only)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app)
+
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
