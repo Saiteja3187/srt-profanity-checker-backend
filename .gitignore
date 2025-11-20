@@ -1,0 +1,14 @@
+# Ignore virtual environments
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Uploads (optional)
+uploads/
+
+# VS Code settings
+.vscode/
