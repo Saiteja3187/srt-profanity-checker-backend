@@ -12,8 +12,11 @@ CORS(app)
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-@app.route('/analyze', methods=['POST'])
+@app.route('/analyze', methods=['POST', 'OPTIONS'])
 def analyze():
+    if request.method == "OPTIONS":
+        return ('', 200)
+
     if 'file' not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
 
@@ -27,6 +30,7 @@ def analyze():
 
     result = analyze_srt(file_path)
     return jsonify(result), 200
+
 
 
 if __name__ == '__main__':
